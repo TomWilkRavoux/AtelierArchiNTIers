@@ -13,6 +13,10 @@ export default class Order {
 
   paidAt: Date;
 
+  statusOrd: "pending" | "paid" | "canceled"; 
+
+  canceledAt?: Date; 
+
   constructor(customerId: number, products: []) {
     if (!customerId) {
       throw new Error("customerId is required");
@@ -26,6 +30,7 @@ export default class Order {
     this.customer = customerId;
     this.products = products;
     this.status = "cart";
+    this.statusOrd = "pending";
 
     this.total = products.reduce((acc, product) => {
       return acc + 5;

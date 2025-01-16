@@ -30,4 +30,13 @@ export default class OrderRepository {
 
     return order;
   }
+
+  async save(order: Order): Promise<void> {
+    const index = this.orders.findIndex(o => o.id === order.id);
+    if (index === -1) {
+      this.orders.push(order);
+    } else {
+      this.orders[index] = order;
+    }
+  }
 }

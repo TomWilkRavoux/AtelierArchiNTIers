@@ -25,7 +25,7 @@ export class PayOrderUseCase {
 
     order.pay();
 
-    const orderUpdated = orderRepository.update(order);
+    const orderUpdated = this.orderRepository.update(order);
 
     return orderUpdated;
   }
